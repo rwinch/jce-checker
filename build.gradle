@@ -1,0 +1,11 @@
+
+
+task check << {
+	println "Checking ${System.props['java.home']}"
+	int maxKeyLen = javax.crypto.Cipher.getMaxAllowedKeyLength("AES")
+	if(maxKeyLen > 128) {
+		println "Successfully installed JCE. AES key is $maxKeyLen"
+	} else {
+		println "Unsuccessfully installed JCE. AES key is $maxKeyLen"
+	}
+}
